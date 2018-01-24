@@ -9102,10 +9102,10 @@ inline void gcode_M226() {
  */
 inline void gcode_M303() {
   #if HAS_PID_HEATING
-    const int e = parser.intval('E'), c = parser.intval('C', 5);
+    const int e = parser.intval('E'), c = parser.intval('C', 8);
     const bool u = parser.boolval('U');
 
-    int16_t temp = parser.celsiusval('S', e < 0 ? 70 : 150);
+    int16_t temp = parser.celsiusval('S', e < 0 ? 70 : 200);
 
     if (WITHIN(e, 0, HOTENDS - 1))
       target_extruder = e;
